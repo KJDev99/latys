@@ -11,7 +11,7 @@ import { CiSettings, CiDark } from "react-icons/ci";
 import LanguageDropdown from "./LanguageDropdown";
 
 function Navbar() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -36,7 +36,7 @@ function Navbar() {
 
   return (
     <nav className="dark:bg-[#1E2142] h-[80px]">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className=" px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-20 items-center justify-between">
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             {/* <!-- Logo --> */}
@@ -123,7 +123,7 @@ function Navbar() {
                     <Image
                       className="h-8 w-8 rounded-full"
                       src={profileDefault}
-                      alt=""
+                      alt="img"
                     />
                   </button>
                 </div>
@@ -177,7 +177,7 @@ function Navbar() {
                       id="user-menu-item-2"
                     >
                       <TbLogout2 className="text-xl mr-1" />
-                      Log Out
+                      <Link href={"/"}>Log Out</Link>
                     </button>
                   </div>
                 )}

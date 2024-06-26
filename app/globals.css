@@ -80,3 +80,6 @@ html {
 #button-3 .checkbox:checked ~ .layer {
   background-color: #7f66ff;
 }
+.h-screen-minus-80 {
+  min-height: calc(100vh - 80px);
+}

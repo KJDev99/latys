@@ -8,9 +8,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      height: {
-        "screen-minus-80": "calc(100vh - 80px)",
-      },
       fontFamily: {
         sans: ["Satoshi", "sans-serif"],
       },
