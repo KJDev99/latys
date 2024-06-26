@@ -3,9 +3,15 @@ import CryptoSelect from "./CryptoSelect";
 import PayCard from "./PayCard";
 import Button from "./Button";
 import CryptoSelectFull from "./CryptoSelectFull";
+import Modal from "./Modal";
 
 const BuyCrypto = () => {
   const [activeComponent, setActiveComponent] = useState("one");
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
     <div className="dark:bg-[#1E2142] bg-white rounded-lg py-6 px-8 mb-12">
       <div className="flex flex-col items-center justify-center">
@@ -37,7 +43,7 @@ const BuyCrypto = () => {
               <CryptoSelect num={0} title={"You Pay"} />
               <CryptoSelect num={1} title={"You Get"} />
               <PayCard />
-              <div className="mt-[100px]">
+              <div className="mt-[100px]" onClick={toggleModal}>
                 <Button text={"Buy Crypto"} />
               </div>
             </div>
@@ -58,6 +64,7 @@ const BuyCrypto = () => {
             </div>
           )}
         </div>
+        <Modal isOpen={isModalOpen} onClose={toggleModal} stepModal={1} />
       </div>
     </div>
   );
