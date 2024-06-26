@@ -1,11 +1,10 @@
-import React from "react";
+import SignUp from "@/app/signup/page";
 
 const HomePage = () => {
   return (
+    // <div className="dark:bg-[#181B33] bg-[#F2F2F2] min-h-screen h-screen-minus-80 flex justify-center items-center"></div>
     <div>
-      <h1 className="text-2xl font-bold  dark:text-white mb-4 bg-white dark:bg-gray-900">
-        {/* Dark Mode Toggle with React and Tailwind asdas dasd asd */}
-      </h1>
+      <SignUp />
     </div>
   );
 };

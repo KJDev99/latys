@@ -16,6 +16,11 @@ function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const pathname = usePathname();
+  useEffect(() => {
+    if (pathname === "/home") {
+      setIsLoggedIn(true);
+    }
+  }, [pathname]);
 
   useEffect(() => {
     if (darkMode) {
