@@ -46,7 +46,7 @@ const PageVerification = () => {
             ))}
           </div>
         </div>
-        <Link href="/home">
+        <Link href="/dashboard">
           <Button text={"Verify"}></Button>
         </Link>
         <p className="mt-5 text-sm text-center text-[#999999] dark:text-[#F2F2F2]">

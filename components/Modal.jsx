@@ -17,7 +17,7 @@ const Modal = ({ isOpen, onClose, stepModal }) => {
       }
     };
     // setStep(stepModal);
-    setStep(2);
+    setStep(1);
 
     window.addEventListener("keydown", handleKeyDown);
     return () => {
@@ -148,7 +148,7 @@ const Modal = ({ isOpen, onClose, stepModal }) => {
           }}
           className="mt-4 px-4 py-2 bg-red-500 text-white rounded"
         >
-          Close Modal
+          Modal................................
         </button>
       </div>
     </div>

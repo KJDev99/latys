@@ -7,7 +7,7 @@ import Modal from "./Modal";
 
 const BuyCrypto = () => {
   const [activeComponent, setActiveComponent] = useState("one");
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);

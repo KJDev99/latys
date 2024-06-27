@@ -4,11 +4,17 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import darkLogo from "@/assets/images/dark-logo.svg";
 import lightLogo from "@/assets/images/light-logo.svg";
+import dollor from "@/assets/images/dollor.svg";
+import cashelok from "@/assets/images/cashelok.svg";
+import cashelok1 from "@/assets/images/cashelok1.svg";
+import tradeing from "@/assets/images/tradeing.svg";
 import Link from "next/link";
 import profileDefault from "@/assets/images/profile.png";
 import { TbLogout2 } from "react-icons/tb";
 import { CiSettings, CiDark } from "react-icons/ci";
 import LanguageDropdown from "./LanguageDropdown";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { IoPersonOutline } from "react-icons/io5";
 
 function Navbar() {
   const [darkMode, setDarkMode] = useState(true);
@@ -17,7 +23,9 @@ function Navbar() {
 
   const pathname = usePathname();
   useEffect(() => {
-    if (pathname === "/home") {
+    if (pathname === "/" || pathname === "/signupverification") {
+      setIsLoggedIn(false);
+    } else {
       setIsLoggedIn(true);
     }
   }, [pathname]);
@@ -35,54 +43,66 @@ function Navbar() {
   };
 
   return (
-    <nav className="dark:bg-[#1E2142] h-[80px]">
+    <nav className="dark:bg-[#191B32] bg-white h-[80px] border-[#E3E3E8] dark:border-[#E3E3E833] border-b-2">
       <div className="container mx-auto">
         <div className=" px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-20 items-center justify-between">
-            <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
-              <Link className="flex flex-shrink-0 items-center" href="/">
+            <div className="flex items-center justify-center md:items-stretch md:justify-start">
+              <Link
+                className="flex flex-shrink-0 items-center"
+                href="/dashboard"
+              >
                 <Image
                   className="h-10 w-auto"
                   src={darkMode ? darkLogo : lightLogo}
                   alt="PropertyPulse"
                 />
               </Link>
-              <div className="hidden md:ml-6 md:block">
-                {isLoggedIn && (
-                  <div className="flex space-x-2">
-                    <Link
-                      href=""
-                      className={`text-[#080033] dark:text-white rounded-md px-3 py-2`}
-                    >
-                      Market
-                    </Link>
-                    <Link
-                      href=""
-                      className={`text-[#080033] dark:text-white rounded-md px-3 py-2`}
-                    >
-                      Trade
-                    </Link>
-                    <Link
-                      href=""
-                      className={`text-[#080033] dark:text-white rounded-md px-3 py-2`}
-                    >
-                      Derivatives
-                    </Link>
-                    <Link
-                      href=""
-                      className={`text-[#080033] dark:text-white rounded-md px-3 py-2`}
-                    >
-                      Finance
-                    </Link>
-                  </div>
-                )}
-              </div>
             </div>
-
+            <div className="hidden md:ml-6 md:block">
+              {isLoggedIn && (
+                <div className="flex space-x-2">
+                  <Link
+                    href="/dashboard"
+                    className={`${
+                      pathname === "/dashboard" && "bg-[#7F66FF] text-white"
+                    } text-[#080033] dark:text-white rounded-md px-3 py-2 flex items-center`}
+                  >
+                    <LuLayoutDashboard className="mr-2 text-[#9C9CAB]" />
+                    Dashboard
+                  </Link>
+                  <Link
+                    href="/trade"
+                    className={`${
+                      pathname === "/trade" && "bg-[#7F66FF] text-white"
+                    } text-[#080033] dark:text-white rounded-md px-3 py-2 flex items-center`}
+                  >
+                    <Image src={tradeing} alt="img" className="mr-2" />
+                    Trade
+                  </Link>
+                  <Link
+                    href="/pay"
+                    className={`${
+                      pathname === "/pay" && "bg-[#7F66FF] text-white"
+                    } text-[#080033] dark:text-white rounded-md px-3 py-2 flex items-center`}
+                  >
+                    <Image src={dollor} alt="img" className="mr-2" />
+                    Pay
+                  </Link>
+                </div>
+              )}
+            </div>
             {!isLoggedIn && <LanguageDropdown />}
 
             {isLoggedIn && (
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
+                <Link href="" className="relative group">
+                  <Image
+                    className="h-6 w-auto mr-4"
+                    src={darkMode ? cashelok1 : cashelok}
+                    alt="PropertyPulse"
+                  />
+                </Link>
                 <Link href="" className="relative group">
                   <button
                     type="button"
@@ -143,9 +163,10 @@ function Navbar() {
                         tabIndex="-1"
                         id="user-menu-item-0"
                       >
-                        <CiSettings className="text-xl mr-1" />
-                        Settings
+                        <IoPersonOutline className="text-xl mr-1" />
+                        Profile
                       </Link>
+
                       <button
                         href=""
                         className="flex  items-center justify-between w-full px-4 py-2 text-sm text-[#080033] dark:text-white"
@@ -156,7 +177,7 @@ function Navbar() {
                       >
                         <div className="flex">
                           <CiDark className="text-xl mr-1" />
-                          Dark Mode
+                          Switch Mode
                         </div>
                         <div id="button-3">
                           <input
@@ -169,6 +190,16 @@ function Navbar() {
                           <div className="layer"></div>
                         </div>
                       </button>
+                      <Link
+                        href=""
+                        className="flex items-center px-4 py-2 text-sm text-[#080033] dark:text-white"
+                        role="menuitem"
+                        tabIndex="-1"
+                        id="user-menu-item-0"
+                      >
+                        <CiSettings className="text-xl mr-1" />
+                        Settings
+                      </Link>
                       <button
                         className="flex items-center px-4 py-2 text-sm text-[#080033] dark:text-white"
                         role="menuitem"

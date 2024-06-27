@@ -45,34 +45,16 @@ const options = {
   },
   scales: {
     x: {
-      type: "time",
-      position: "bottom",
-      time: {
-        unit: "month",
-        tooltipFormat: "dd.MM",
-        displayFormats: {
-          month: "MM.yy",
-        },
-      },
-      title: {
-        display: true,
-        text: "",
-      },
-      ticks: {
-        color: "#999999", // Y o'qi raqamlarining rangi
+      grid: {
+        display: false,
       },
     },
     y: {
-      position: "right", // Move the y-axis to the right
-      title: {
-        display: true,
-        text: "",
+      grid: {
+        display: false,
       },
       min: 0, // Start y-axis from 0
-      suggestedMax: 120000, // Suggest a max value for y-axis
-      ticks: {
-        color: "#999999", // Y o'qi raqamlarining rangi
-      },
+      suggestedMax: 120, // Suggest a max value for y-axis
     },
   },
   elements: {
@@ -89,19 +71,11 @@ const options = {
 };
 
 const data = {
-  labels: [
-    "2024-01-01",
-    "2024-02-01",
-    "2024-03-01",
-    "2024-04-01",
-    "2024-05-01",
-    "2024-06-01",
-    "2024-07-01",
-  ],
+  labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
   datasets: [
     {
-      label: "Dataset",
-      data: [65000, 59000, 80000, 81000, 56000, 45000, 80000],
+      label: "",
+      data: [65, 59, 80, 81, 56, 55, 40],
       borderColor: "#7F66FF",
       fill: false,
     },
@@ -134,8 +108,8 @@ ChartJS.register(gradientBackgroundPlugin);
 
 export default function LineChart() {
   return (
-    <div style={{ position: "relative" }} className="mt-[-20px] w-[700px]">
-      <Line options={options} data={data} />
+    <div style={{ position: "relative" }} className="mt-[-20px] w-[full]">
+      <Line options={options} data={data} height={350} width={0} />
       <svg
         style={{
           position: "absolute",
