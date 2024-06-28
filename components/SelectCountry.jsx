@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IoEarthOutline } from "react-icons/io5";
 import useflag from "@/assets/images/useflag.svg";
 import Image from "next/image";
 
