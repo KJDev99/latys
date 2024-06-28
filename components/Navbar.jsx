@@ -96,10 +96,17 @@ function Navbar() {
 
             {isLoggedIn && (
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
-                <Link href="" className="relative group">
+                <Link
+                  href="/cash"
+                  className={`${
+                    pathname === "/cash" && "!bg-[#7F66FF] text-white"
+                  } relative group flex bg-transparent h-10 w-12 mr-4 items-center justify-center rounded-md`}
+                >
                   <Image
-                    className="h-6 w-auto mr-4"
-                    src={darkMode ? cashelok1 : cashelok}
+                    className="h-6 w-auto "
+                    src={
+                      darkMode || pathname === "/cash" ? cashelok1 : cashelok
+                    }
                     alt="PropertyPulse"
                   />
                 </Link>
@@ -127,7 +134,7 @@ function Navbar() {
                   </button>
                 </Link>
                 {/* <!-- Profile dropdown button --> */}
-                <div className="relative ml-3">
+                <div className="relative ml-4">
                   <div>
                     <button
                       type="button"
