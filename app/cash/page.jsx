@@ -65,19 +65,19 @@ const CashPage = () => {
                 text={"$111,215.32"}
               />
               <CashCard
-                img={"./balans1.svg"}
-                title={"Available to trade"}
-                text={"$111,215.32"}
+                img={"./balans2.svg"}
+                title={"Locked in Orders"}
+                text={"$20,111.22"}
               />
               <CashCard
-                img={"./balans1.svg"}
-                title={"Available to trade"}
-                text={"$111,215.32"}
+                img={"./cardbalans.svg"}
+                title={"Pending deposits"}
+                text={"$20,483.16"}
               />
               <CashCard
-                img={"./balans1.svg"}
-                title={"Available to trade"}
-                text={"$111,215.32"}
+                img={"./cardbalans.svg"}
+                title={"Pending withdrawl"}
+                text={"$90,483.16"}
               />
             </div>
             <div className="w-full flex justify-center mb-10">
