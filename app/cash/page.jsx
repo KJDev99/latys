@@ -3,7 +3,6 @@ import { useState } from "react";
 import Recently from "@/components/Recently";
 import SelectCountry from "@/components/SelectCountry";
 import CashCard from "@/components/CashCard";
-import Button from "@/components/Button";
 import History from "@/components/History";
 import Image from "next/image";
 import message from "@/assets/images/message.svg";

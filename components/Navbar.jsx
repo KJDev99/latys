@@ -81,6 +81,15 @@ function Navbar() {
                     Trade
                   </Link>
                   <Link
+                    href="/trade2"
+                    className={`${
+                      pathname === "/trade2" && "bg-[#7F66FF] text-white"
+                    } text-[#080033] dark:text-white rounded-md px-3 py-2 flex items-center`}
+                  >
+                    <Image src={tradeing} alt="img" className="mr-2" />
+                    Trade2
+                  </Link>
+                  <Link
                     href="/pay"
                     className={`${
                       pathname === "/pay" && "bg-[#7F66FF] text-white"

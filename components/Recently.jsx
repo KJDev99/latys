@@ -8,6 +8,7 @@ const Recently = ({
   endTitle,
   activeComponent,
   setActiveComponent,
+  rightStyle,
 }) => {
   return (
     <div
@@ -29,7 +30,11 @@ const Recently = ({
         </div>
       )}
       {activeComponent === name && (
-        <div className="absolute right-[-40px] top-3">
+        <div
+          className={`absolute top-3 !z-10 ${
+            rightStyle ? `right-[0px]` : "right-[-40px]"
+          }`}
+        >
           <Image src={arrow} alt="arrow" />
         </div>
       )}
