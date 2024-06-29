@@ -9,8 +9,8 @@ const Dropdown = ({ title, img, subtitle, items, isOpen, toggleDropdown }) => {
         className="flex justify-between items-center py-4 border-b-2 border-[#E3E3E8] dark:border-[#E3E3E833]"
       >
         <div className="flex">
-          <img src={img} alt={name} className="dark:hidden" />
-          <img src={img} alt={name} className="dark:block hidden" />
+          <img src={img} alt={"item"} className="dark:hidden" />
+          <img src={img} alt={"item"} className="dark:block hidden" />
           <div className="flex flex-col ml-2">
             <p className="text-[#131316] dark:text-[#FFFFFF]">{title}</p>
             <p className="text-[#7F66FF] dark:text-[#9C9CAB] text-sm">

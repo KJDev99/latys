@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Recently from "@/components/Recently";
-import History from "@/components/History";
 import Image from "next/image";
 import cashelok from "@/assets/images/cashelok.svg";
 import cashelok1 from "@/assets/images/cashelok1.svg";

@@ -25,7 +25,7 @@ const Recently = ({
 
       {endTitle && (
         <div className="flex items-center">
-          <img src="./linever.svg" alt="" />
+          <img src="./linever.svg" alt="fixed" />
           <h4 className="text-sm dark:text-[#FFFFFF]">{endTitle}</h4>
         </div>
       )}

@@ -1,10 +1,5 @@
 "use client";
 import { useState } from "react";
-import Recently from "@/components/Recently";
-import Image from "next/image";
-import cashelok from "@/assets/images/cashelok.svg";
-import cashelok1 from "@/assets/images/cashelok1.svg";
-import TradeItem from "@/components/TradeItem";
 import Button from "@/components/Button";
 import OrderItem from "@/components/OrderItem";
 import DropdownExample from "@/components/Dropdown";
