@@ -17,14 +17,15 @@ const crtypo = [
   { name: "USD", icon: <IoEarthOutline className="text-2xl mr-2" /> },
 ];
 
-export default function CryptoSelectFull({ num, title }) {
+export default function CryptoSelectFull({ num, title, onChange }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCryptoFull, setSelectedCryptoFull] = useState(crtypo[num]);
 
   const toggleDropdown = () => setIsOpen(!isOpen);
-  const selectLanguage = (language) => {
+  const selectLanguage = (language, index) => {
     setSelectedCryptoFull(language);
     setIsOpen(false);
+    onChange(index);
   };
 
   return (
@@ -74,7 +75,7 @@ export default function CryptoSelectFull({ num, title }) {
             {crtypo.map((language, index) => (
               <button
                 key={index}
-                onClick={() => selectLanguage(language)}
+                onClick={() => selectLanguage(language, index)}
                 className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 w-full"
                 role="menuitem"
               >

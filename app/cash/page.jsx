@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Recently from "@/components/Recently";
 import SelectCountry from "@/components/SelectCountry";
 import CashCard from "@/components/CashCard";
@@ -8,6 +8,14 @@ import Image from "next/image";
 import message from "@/assets/images/message.svg";
 const CashPage = () => {
   const [activeComponent, setActiveComponent] = useState("USD");
+  const [myMoney, setMyMoney] = useState("$2,260");
+  useEffect(() => {
+    if (activeComponent == "USD") {
+      setMyMoney("$2,260");
+    } else if (activeComponent == "Ethereum") {
+      setMyMoney("$5,369");
+    }
+  }, [activeComponent]);
   return (
     <div className="dark:bg-[#1E2142] bg-[#FFFFFF] h-screen-minus-80 w-full ">
       <div className="container mx-auto">
@@ -45,7 +53,7 @@ const CashPage = () => {
                   <img src="./antena.svg" alt="antena" />
                   <p className="text-sm ml-2 text-[#93989A]">Your Balance</p>
                 </div>
-                <p className="dark:text-white text-4xl mt-2">$2,260</p>
+                <p className="dark:text-white text-4xl mt-2">{myMoney}</p>
               </div>
               <div className="flex items-center">
                 <SelectCountry />

@@ -4,10 +4,12 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import darkLogo from "@/assets/images/dark-logo.svg";
 import lightLogo from "@/assets/images/light-logo.svg";
-import dollor from "@/assets/images/dollor.svg";
 import cashelok from "@/assets/images/cashelok.svg";
 import cashelok1 from "@/assets/images/cashelok1.svg";
+import dollor from "@/assets/images/dollor.svg";
 import tradeing from "@/assets/images/tradeing.svg";
+import wihtetrade from "@/assets/images/wihtetrade.svg";
+import whitedollor from "@/assets/images/whitedollor.svg";
 import Link from "next/link";
 import profileDefault from "@/assets/images/profile.png";
 import { TbLogout2 } from "react-icons/tb";
@@ -68,7 +70,11 @@ function Navbar() {
                       pathname === "/dashboard" && "bg-[#7F66FF] text-white"
                     } text-[#080033] dark:text-white rounded-md px-3 py-2 flex items-center`}
                   >
-                    <LuLayoutDashboard className="mr-2 text-[#9C9CAB]" />
+                    <LuLayoutDashboard
+                      className={`${
+                        pathname == "/dashboard" && "text-white"
+                      } mr-2 text-[#9C9CAB] dark:text-[white] `}
+                    />
                     Dashboard
                   </Link>
                   <Link
@@ -77,7 +83,15 @@ function Navbar() {
                       pathname === "/trade" && "bg-[#7F66FF] text-white"
                     } text-[#080033] dark:text-white rounded-md px-3 py-2 flex items-center`}
                   >
-                    <Image src={tradeing} alt="img" className="mr-2" />
+                    <Image
+                      src={
+                        darkMode || pathname === "/trade"
+                          ? wihtetrade
+                          : tradeing
+                      }
+                      alt="img"
+                      className="mr-2"
+                    />
                     Trade
                   </Link>
                   <Link
@@ -86,7 +100,15 @@ function Navbar() {
                       pathname === "/trade2" && "bg-[#7F66FF] text-white"
                     } text-[#080033] dark:text-white rounded-md px-3 py-2 flex items-center`}
                   >
-                    <Image src={tradeing} alt="img" className="mr-2" />
+                    <Image
+                      src={
+                        darkMode || pathname === "/trade2"
+                          ? wihtetrade
+                          : tradeing
+                      }
+                      alt="img"
+                      className="mr-2"
+                    />
                     Trade2
                   </Link>
                   <Link
@@ -95,7 +117,13 @@ function Navbar() {
                       pathname === "/pay" && "bg-[#7F66FF] text-white"
                     } text-[#080033] dark:text-white rounded-md px-3 py-2 flex items-center`}
                   >
-                    <Image src={dollor} alt="img" className="mr-2" />
+                    <Image
+                      src={
+                        darkMode || pathname === "/pay" ? whitedollor : dollor
+                      }
+                      alt="img"
+                      className="mr-2"
+                    />
                     Pay
                   </Link>
                 </div>

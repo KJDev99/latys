@@ -6,9 +6,30 @@ import LineChart from "@/components/LineChart";
 import Recently from "@/components/Recently";
 import Portfolio from "@/components/Portfolio";
 import SelectTime from "@/components/SelectTime";
-import React from "react";
+import React, { useState } from "react";
 
 const Dashboard = () => {
+  const [selectedCrypto, setSelectedCrypto] = useState(0); // Default selection index
+  const [selectedTime, setSelectedTime] = useState(0); // Default selection index
+  const [chartData, setChartData] = useState([65, 59, 80, 81, 56, 55, 80]); // Default chart data
+
+  const updateChartData = (newData) => {
+    setChartData(newData);
+  };
+
+  const handleCryptoChange = (index) => {
+    setSelectedCrypto(index);
+    if (index == 0) updateChartData([65, 34, 64, 87, 34, 76, 25]);
+    else if (index == 1) updateChartData([34, 87, 64, 23, 65, 53, 87]);
+    else if (index == 2) updateChartData([45, 76, 87, 34, 65, 34, 60]);
+  };
+
+  const handleTimeChange = (index) => {
+    setSelectedTime(index);
+    if (index == 0) updateChartData([65, 59, 65, 45, 56, 55, 80]);
+    else if (index == 1) updateChartData([45, 76, 87, 34, 65, 34, 60]);
+    else if (index == 2) updateChartData([34, 87, 64, 23, 65, 53, 87]);
+  };
   return (
     <div className="dark:bg-[#181B33] bg-[#FFFFFF] h-screen-minus-80 w-full ">
       <div className="container mx-auto">
@@ -20,11 +41,14 @@ const Dashboard = () => {
                   Portfolio Stats
                 </h2>
                 <div className="flex">
-                  <CryptoSelectFull num={0} className="" />
-                  <SelectTime num={0} />
+                  <CryptoSelectFull
+                    num={selectedCrypto}
+                    onChange={handleCryptoChange}
+                  />
+                  <SelectTime num={selectedTime} onChange={handleTimeChange} />
                 </div>
               </div>
-              <LineChart />
+              <LineChart data={chartData} />
             </div>
             <div className="w-full bg-white px-6 dark:bg-[#191B32]  border-y-2 my-6 border-[#E3E3E8] dark:border-[#E3E3E833]">
               <div className="flex justify-between mt-6 mb-2">

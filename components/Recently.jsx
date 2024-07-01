@@ -3,6 +3,7 @@ import arrow from "@/assets/images/arrow.png";
 
 const Recently = ({
   imgbig,
+  imgdark,
   name,
   prosent,
   endTitle,
@@ -16,7 +17,14 @@ const Recently = ({
       onClick={setActiveComponent}
     >
       <div className="flex">
-        <img src={imgbig} alt="crypto" />
+        {imgdark ? (
+          <>
+            <img src={imgbig} alt="crypto" className="block dark:hidden" />
+            <img src={imgdark} alt="crypto" className="hidden dark:block" />
+          </>
+        ) : (
+          <img src={imgbig} alt="crypto" />
+        )}
         <div className="flex flex-col justify-center ml-3">
           <h4 className="dark:text-[#FFFFFF] text-sm text-[#2F2F37]">{name}</h4>
           <p className="text-xs text-[#93989A]">{prosent}</p>

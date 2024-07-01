@@ -35,10 +35,11 @@ const Dropdown = ({ title, img, subtitle, items, isOpen, toggleDropdown }) => {
   );
 };
 
-const DropdownExample = () => {
+const DropdownExample = ({ activeComponent, setActiveComponent }) => {
   const [openDropdown, setOpenDropdown] = useState("dropdown1");
-  const [activeComponent, setActiveComponent] = useState("BTC/USD");
-
+  // const [activeComponent, setActiveComponent] = useState("BTC/USD");
+  console.log(activeComponent, "activeComponent");
+  console.log(setActiveComponent, "setActiveComponent");
   const toggleDropdown = (dropdown) => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
   };
@@ -53,6 +54,7 @@ const DropdownExample = () => {
           <div className="w-full cursor-pointer ">
             <Recently
               imgbig={"./btcusd.svg"}
+              imgdark={"./btcusd0.svg"}
               name={"BTC/USD"}
               activeComponent={activeComponent}
               setActiveComponent={() => setActiveComponent("BTC/USD")}
@@ -62,6 +64,7 @@ const DropdownExample = () => {
           <div className="w-full cursor-pointer">
             <Recently
               imgbig={"./btcusd.svg"}
+              imgdark={"./btcusd0.svg"}
               name={"USDT/USD"}
               activeComponent={activeComponent}
               setActiveComponent={() => setActiveComponent("USDT/USD")}
@@ -71,6 +74,7 @@ const DropdownExample = () => {
           <div className="w-full cursor-pointer">
             <Recently
               imgbig={"./btcusd.svg"}
+              imgdark={"./btcusd0.svg"}
               name={"ETH/USD"}
               activeComponent={activeComponent}
               setActiveComponent={() => setActiveComponent("ETH/USD")}
@@ -89,6 +93,7 @@ const DropdownExample = () => {
           <div className="w-full cursor-pointer">
             <Recently
               imgbig={"./btcusd.svg"}
+              imgdark={"./btcusd0.svg"}
               name={"BTC/USD"}
               activeComponent={activeComponent}
               setActiveComponent={() => setActiveComponent("BTC/USD")}
@@ -98,6 +103,7 @@ const DropdownExample = () => {
           <div className="w-full cursor-pointer">
             <Recently
               imgbig={"./btcusd.svg"}
+              imgdark={"./btcusd0.svg"}
               name={"USDT/USD"}
               activeComponent={activeComponent}
               setActiveComponent={() => setActiveComponent("USDT/USD")}
@@ -107,6 +113,7 @@ const DropdownExample = () => {
           <div className="w-full cursor-pointer">
             <Recently
               imgbig={"./btcusd.svg"}
+              imgdark={"./btcusd0.svg"}
               name={"ETH/USD"}
               activeComponent={activeComponent}
               setActiveComponent={() => setActiveComponent("ETH/USD")}

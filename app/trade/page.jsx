@@ -1,16 +1,53 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@/components/Button";
 import OrderItem from "@/components/OrderItem";
 import DropdownExample from "@/components/Dropdown";
 const Trade = () => {
-  const [activeComponent, setActiveComponent] = useState("USD");
+  const [activeComponent, setActiveComponent] = useState("BTC/USD");
+  const [myMoney, setMoney] = useState("2.32533");
+  const [myPrice, setPrice] = useState("4.23546");
+  const [myFullName, setMyFullName] = useState("BTC/USD");
+  const [buyOrder, setBuyOrder] = useState([
+    "0.3464 BTC",
+    "$1,658",
+    "20.02.24",
+  ]);
+  const [sellOrder, setSellOrder] = useState([
+    "0.2364 BTC",
+    "$0,858",
+    "20.02.24",
+  ]);
+  useEffect(() => {
+    if (activeComponent == "BTC/USD") {
+      setMoney("2.32533");
+      setPrice("4.23546");
+      setMyFullName("BTC/USD");
+      setBuyOrder(["0.3464 BTC", "$1,658", "20.02.24"]);
+      setSellOrder(["0.2364 BTC", "$0,858", "20.02.24"]);
+    } else if (activeComponent == "USDT/USD") {
+      setMoney("1.32434");
+      setPrice("23.4324");
+      setMyFullName("USDT/USD");
+      setBuyOrder(["0.1234 BTC", "$1,654", "21.02.24"]);
+      setSellOrder(["0.4444 BTC", "$0,111", "21.02.24"]);
+    } else if (activeComponent == "ETH/USD") {
+      setMoney("6.45647");
+      setPrice("8.67535");
+      setMyFullName("ETH/USD");
+      setBuyOrder(["0.7777 BTC", "$1,123", "23.02.24"]);
+      setSellOrder(["0.4444 BTC", "$0,222", "23.02.24"]);
+    }
+  }, [activeComponent]);
   return (
     <div className="dark:bg-[#1E2142] bg-[#FFFFFF] h-screen-minus-80 w-full ">
       <div className="container mx-auto">
         <div className="flex">
           <div className="w-1/5 pt-6 h-screen-minus-80 border-r-2 border-[#E3E3E8] dark:border-[#F4F4F633] ">
-            <DropdownExample />
+            <DropdownExample
+              activeComponent={activeComponent}
+              setActiveComponent={setActiveComponent}
+            />
             <div className="fixed  bottom-10 flex items-center cursor-pointer px-10">
               <div className="rounded-full h-12 w-12 bg-[#F9F9FA] flex items-center justify-center text-[#5235E8] text-3xl">
                 +
@@ -35,7 +72,7 @@ const Trade = () => {
                     />
                     <div className="flex flex-col ml-5">
                       <h3 className="text-[32px] dark:text-white">
-                        BTC/USD Market
+                        {myFullName} Market
                       </h3>
                       <p className="dark:text-[#717184] text-sm">
                         Currency in USD. Market Open
@@ -44,11 +81,11 @@ const Trade = () => {
                   </div>
                   <div className="flex items-center">
                     <div className="flex flex-col mr-12">
-                      <p className="border dark:border-[#C8C8D033] rounded-lg px-3 py-1 dark:bg-[#282B4E] font-medium dark:text-[white] mb-[14px]">
-                        $&nbsp;2.32533
+                      <p className="border flex dark:border-[#C8C8D033] rounded-lg px-3 py-1 dark:bg-[#282B4E] font-medium dark:text-[white] mb-[14px]">
+                        $&nbsp;{myMoney}
                       </p>
-                      <p className="border dark:border-[#C8C8D033] rounded-lg px-3 py-1 dark:bg-[#282B4E] font-medium dark:text-[white]">
-                        $&nbsp;2.32533
+                      <p className="border flex dark:border-[#C8C8D033] rounded-lg px-3 py-1 dark:bg-[#282B4E] font-medium dark:text-[white]">
+                        $&nbsp;{myPrice}
                       </p>
                     </div>
                     <Button text={"Create offer"} />
@@ -78,9 +115,9 @@ const Trade = () => {
                         </div>
                       </div>
                       <OrderItem
-                        num0={"0.3464 BTC"}
-                        num1={"$1,658"}
-                        num2={"20.02.24"}
+                        num0={buyOrder[0]}
+                        num1={buyOrder[1]}
+                        num2={buyOrder[2]}
                       />
                       <OrderItem
                         num0={"0.3464 BTC"}
@@ -122,9 +159,9 @@ const Trade = () => {
                         </div>
                       </div>
                       <OrderItem
-                        num0={"0.3464 BTC"}
-                        num1={"$1,658"}
-                        num2={"20.02.24"}
+                        num0={sellOrder[0]}
+                        num1={sellOrder[1]}
+                        num2={sellOrder[2]}
                       />
                       <OrderItem
                         num0={"0.3464 BTC"}

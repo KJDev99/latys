@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Recently from "@/components/Recently";
 import Image from "next/image";
 import cashelok from "@/assets/images/cashelok.svg";
@@ -7,6 +7,28 @@ import cashelok1 from "@/assets/images/cashelok1.svg";
 import TradeItem from "@/components/TradeItem";
 const Trade = () => {
   const [activeComponent, setActiveComponent] = useState("USD");
+  const [myMoney, setMyMoney] = useState("$0.32533");
+  const [btcMoney, setBtcMoney] = useState("$53,260.20");
+  const [btcPrice, setBtcPrice] = useState("$361.32B");
+  useEffect(() => {
+    if (activeComponent == "USD") {
+      setMyMoney("$0.12343");
+      setBtcMoney("$53,260.20");
+      setBtcPrice("$111.32B");
+    } else if (activeComponent == "Ethereum") {
+      setMyMoney("$0.43123");
+      setBtcMoney("$45,260.20");
+      setBtcPrice("$331.32B");
+    } else if (activeComponent == "USDT") {
+      setMyMoney("$0.76543");
+      setBtcMoney("$34,260.20");
+      setBtcPrice("$651.32B");
+    } else if (activeComponent == "Dogecoin") {
+      setMyMoney("$0.54321");
+      setBtcMoney("$76,260.20");
+      setBtcPrice("$961.32B");
+    }
+  }, [activeComponent]);
   return (
     <div className="dark:bg-[#1E2142] bg-[#FFFFFF] h-screen-minus-80 w-full ">
       <div className="container mx-auto">
@@ -73,7 +95,7 @@ const Trade = () => {
                     Transactions History
                   </h2>
                 </div>
-                <p className="text dark:text-white text-2xl">$0.32533</p>
+                <p className="text dark:text-white text-2xl">{myMoney}</p>
               </div>
               <div className="dark:bg-[#282B4E] bg-white border-2 dark:border-[#F3F3F333] border-[#F3F3F3] rounded-xl mb-10 px-10 py-8">
                 <div className="px-6 py-3 mb-4 rounded-md flex justify-between items-center dark:bg-[#1E2142] bg-[#F9F9FA]">
@@ -101,8 +123,8 @@ const Trade = () => {
                     imgbig={"./Coin.svg"}
                     name={"Bitcoin"}
                     prosent={"BTC"}
-                    balance={"$53,260.20"}
-                    price={"$361.32B"}
+                    balance={btcMoney}
+                    price={btcPrice}
                   />
                   <TradeItem
                     imgbig={"./Crypto.svg"}

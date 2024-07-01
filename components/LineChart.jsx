@@ -70,18 +70,6 @@ const options = {
   },
 };
 
-const data = {
-  labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-  datasets: [
-    {
-      label: "",
-      data: [65, 59, 80, 81, 56, 55, 40],
-      borderColor: "#7F66FF",
-      fill: false,
-    },
-  ],
-};
-
 const gradientBackgroundPlugin = {
   id: "gradientBackground",
   beforeDraw: (chart, args, options) => {
@@ -106,10 +94,22 @@ const gradientBackgroundPlugin = {
 
 ChartJS.register(gradientBackgroundPlugin);
 
-export default function LineChart() {
+export default function LineChart({ data }) {
+  const chartData = {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    datasets: [
+      {
+        label: "",
+        data: data,
+        borderColor: "#7F66FF",
+        fill: false,
+      },
+    ],
+  };
+
   return (
     <div style={{ position: "relative" }} className="mt-[-20px] w-[full]">
-      <Line options={options} data={data} height={350} width={0} />
+      <Line options={options} data={chartData} height={350} width={0} />
       <svg
         style={{
           position: "absolute",
